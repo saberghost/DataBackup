@@ -9,7 +9,12 @@ namespace DataBackup
 {
     class RarHelper
     {
-        public static void Rar(string OriPath, string destPath)
+        /// <summary>
+        /// 压缩指定文件
+        /// </summary>
+        /// <param name="SourcePath">源文件路径</param>
+        /// <param name="TargetPath">目标文件路径</param>
+        public static void Compress(string SourcePath, string TargetPath)
         {
             try
             {
@@ -22,8 +27,8 @@ namespace DataBackup
                 sb.Append(" m");
                 sb.Append(" -m5");
                 sb.Append(" -ep1");
-                sb.Append($" {OriPath}");
-                sb.Append($" {destPath}");
+                sb.Append($" {SourcePath}");
+                sb.Append($" {TargetPath}");
                 Process proc = new Process();
                 proc.StartInfo.FileName = exe;
                 proc.StartInfo.UseShellExecute = false;
